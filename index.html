@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM HTML Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+  </head>
+  <body>  
+    <div class="container">
+      <form onsubmit="generateTableRow(event)">
+        <h3>Form</h3>
+        <hr>
+        <!-- Input fields -->
+        <div class="form-group">
+          <div class="name">
+            <div class="fname">
+              <label class="title" for="fname">First Name</label>
+              <input type="text" class="form-control" id="fname" placeholder="Enter first name">
+            </div>
+            <div class="lname">
+              <label class="title" for="lname">Last Name</label>
+              <input type="text" class="form-control" id="lname" placeholder="Enter last name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="title" for="address">Address</label>
+          <input type="address" class="form-control" id="address" placeholder="Enter address">
+        </div>  
+        <div class="form-group">
+          <label class="title" for="address">Pincode</label>
+          <input type="text" class="form-control" id="pincode" placeholder="Enter Pincode">
+        </div>
+        <!-- Radio -->
+        <div class="form-group">
+          <label class="title">Gender</label>
+          <div class="gender">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="male" onchange="getGender()">
+              <label class="form-check-label" for="male">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="female" onchange="getGender()">
+              <label class="form-check-label" for="female">
+                Female
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Checkbox -->
+        <div class="form-group">
+          <label class="title">Favorite Food Items</label>
+          <div class="fav-food">
+            <div class="form-check">
+              <input onclick="getFavFoods()" class="form-check-input" name="fav-food" type="checkbox" id="north-indian">
+              <label class="form-check-label" for="north-indian">
+                North Indian
+              </label>
+            </div>
+            <div class="form-check">
+              <input onclick="getFavFoods()" class="form-check-input" name="fav-food" type="checkbox" id="south-indian">
+              <label class="form-check-label" for="south-indian">
+                South Indian
+              </label>
+            </div>
+            <div class="form-check">
+              <input onclick="getFavFoods()" class="form-check-input" name="fav-food" type="checkbox" id="chinese">
+              <label class="form-check-label" for="chinese">
+                Chinese
+              </label>
+            </div>
+            <div class="form-check">
+              <input onclick="getFavFoods()" class="form-check-input" name="fav-food" type="checkbox" id="italian">
+              <label class="form-check-label" for="italian">
+                Italian
+              </label>
+            </div>
+            <div class="form-check">
+              <input onclick="getFavFoods()" class="form-check-input" name="fav-food" type="checkbox" id="mexican">
+              <label class="form-check-label" for="mexican">
+                Mexican
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Select option -->
+        <div class="options">
+          <div class="form-group">
+            <label class="title">Country</label>
+            <div class="country">
+              <select onchange="getCountry()" id="country" class="form-select country" aria-label="Default select example">
+                <option selected>Select Country</option>
+                <option value="1">India</option>
+                <option value="2">USA</option>
+              </select>
+            </div>
+          </div>
+          <!-- Select option -->
+          <div class="form-group">
+            <label class="title">State</label>
+            <div class="states">
+              <select onchange="getState()" id="state" class="form-select state" aria-label="Default select example">
+                <option selected>Select State</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="submit-btn">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+      </form> 
+
+      <div id="warning" class="warning hide">
+      </div>
+
+      <div>
+        <h3>Details</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Address</th>
+              <th scope="col">Pincode</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Favorite Food</th>
+              <th scope="col">Country</th>
+              <th scope="col">State</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
