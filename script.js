@@ -203,12 +203,6 @@ function clearInputs() {
 
   document.querySelectorAll('input[type="checkbox"]')
     .forEach(el => el.checked = false);
-}
 
-function testing() {
-  var select = document.getElementById('states');
-    var selected = [...select.options]
-                    .filter(option => option.selected)
-                    .map(option => option.value);
-    alert(selected);
+  document.getElementById("country").value = "Select Country";
 }
